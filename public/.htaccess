@@ -1,0 +1,19 @@
+RewriteEngine On
+
+# Redirecionar todas as requisições para index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php [QSA,L]
+
+# Segurança: bloquear acesso a arquivos sensíveis
+<FilesMatch "\.(env|log|sql|md)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Permitir acesso direto a arquivos PHP na pasta public
+<FilesMatch "\.php$">
+    Order allow,deny
+    Allow from all
+</FilesMatch>
+

@@ -1,0 +1,18 @@
+[2025-12-19 16:57:53] [INFO] Usuário criado {"user_id":2,"criado_por":"1"}
+[2025-12-19 19:22:22] [INFO] Congregação criada {"nome":"Luz Divina","criado_por":"1"}
+[2025-12-19 19:22:58] [INFO] Congregação criada {"nome":"Assembléia de Deus","criado_por":"1"}
+[2025-12-19 19:24:27] [INFO] Usuário criado {"user_id":3,"criado_por":"1"}
+[2025-12-19 19:25:04] [INFO] Congregação criada {"nome":"Universal","criado_por":"1"}
+[2025-12-19 19:36:26] [ERROR] Erro ao criar célula {"error":"SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`igreja`.`celulas`, CONSTRAINT `celulas_ibfk_2` FOREIGN KEY (`lider_id`) REFERENCES `lideres` (`id`))"}
+[2025-12-19 19:41:17] [INFO] Líder criado automaticamente {"usuario_id":"3","lider_id":1}
+[2025-12-19 19:41:17] [INFO] Célula criada {"nome":"RESGATE","criado_por":"1"}
+[2025-12-19 19:42:34] [INFO] Usuário criado {"user_id":4,"criado_por":"1"}
+[2025-12-19 20:24:58] [INFO] Célula criada {"nome":"Resgate","criado_por":"1"}
+[2025-12-19 20:26:04] [INFO] Célula atualizada {"id":3,"atualizado_por":"1"}
+[2025-12-19 20:28:03] [INFO] Líder criado automaticamente {"usuario_id":5,"lider_id":"4"}
+[2025-12-19 20:28:03] [INFO] Usuário criado {"user_id":5,"criado_por":"1"}
+[2025-12-19 20:29:16] [INFO] Célula criada {"nome":"Tribo de Judá","criado_por":"1"}
+[2025-12-19 20:37:16] [WARNING] Validações falharam ao registrar reunião {"user_id":"1","erros":["O número de aceitações não pode ser maior que o de visitantes"]}
+[2025-12-19 20:46:28] [WARNING] Validações falharam ao registrar reunião {"user_id":"1","erros":["O número de presentes não pode ser maior que o de cadastrados"]}
+[2025-12-19 20:46:48] [INFO] Reunião registrada com sucesso {"user_id":"1","celula_id":"2","data":"2025-12-19"}
+[2025-12-19 22:30:10] [INFO] Mês fechado {"mes":11,"ano":2025,"user_id":"1"}
