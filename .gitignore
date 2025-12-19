@@ -1,0 +1,27 @@
+# Arquivos de configuração com dados sensíveis
+config/config.php
+
+# Dependências do Composer
+vendor/
+
+# Logs
+storage/logs/*.log
+
+# Arquivos temporários
+*.tmp
+*.temp
+
+# Arquivos do sistema operacional
+.DS_Store
+Thumbs.db
+
+# Arquivos de backup
+*.bak
+*.backup
+
+# Arquivos de instalação
+Composer-Setup.exe
+
+# Cache e arquivos temporários do PHP
+cache/
+tmp/
