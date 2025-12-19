@@ -257,6 +257,43 @@ Para usar `http://igreja.local` ao invés de `http://localhost/igreja`:
 3. Reinicie o Apache
 4. Acesse: `http://igreja.local`
 
+### 🌐 Migração para Produção
+
+#### Configuração HTTPS/SSL
+Para colocar o sistema em produção com HTTPS seguro:
+
+**1. Configure SSL no Servidor**
+- Instale certificado SSL (Let's Encrypt gratuito ou pago)
+- Configure Virtual Host para HTTPS
+
+**2. Atualize a Configuração**
+Edite `config/config.php`:
+```php
+'app' => [
+    'name' => 'Sistema de Gestão de Células',
+    'url' => 'https://seudominio.com',  // ← Use HTTPS em produção
+    'timezone' => 'America/Sao_Paulo'
+]
+```
+
+**3. Force HTTPS (Opcional)**
+Adicione ao `public/.htaccess`:
+```apache
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+```
+
+**4. Checklist de Produção**
+- ✅ Upload de todos os arquivos
+- ✅ Configuração do banco MySQL
+- ✅ Execução dos scripts SQL (`schema.sql` + `migrations.sql`)
+- ✅ Configuração SSL/HTTPS
+- ✅ Teste de todas as funcionalidades
+- ✅ Backup automático configurado
+
+**⚠️ Importante:** As routes do sistema são relativas e funcionam automaticamente com HTTPS. Não é necessário alterar nenhuma rota!
+
 ### 📞 Suporte
 
 Para suporte técnico:
