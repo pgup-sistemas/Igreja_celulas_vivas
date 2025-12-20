@@ -9,14 +9,14 @@
             </div>
             <div class="card-body pt-0">
                 <div class="text-center mb-4">
-                    <h5 class="fw-bold">Login</h5>
-                    <p class="text-muted small mb-0">Acesse com seu usuário</p>
+                    <i class="bi bi-key-fill text-primary" style="font-size: 3rem;"></i>
+                    <h5 class="fw-bold mt-2">Esqueci minha senha</h5>
+                    <p class="text-muted small mb-0">Digite seu e-mail para redefinir a senha</p>
                 </div>
                 <?php if (!empty($error)): ?>
                     <div class="alert alert-danger small"><?= htmlspecialchars($error) ?></div>
                 <?php endif; ?>
                 <?php
-                // Detectar caminho base
                 $scriptName = $_SERVER['SCRIPT_NAME'] ?? '/index.php';
                 $basePath = dirname($scriptName);
                 $basePath = rtrim($basePath, '/');
@@ -25,26 +25,21 @@
                 } else {
                     $basePath = '/' . ltrim($basePath, '/');
                 }
-                $loginPath = $basePath . '/login';
                 ?>
-                <form method="POST" action="<?= htmlspecialchars($loginPath) ?>">
+                <form method="POST" action="<?= htmlspecialchars($basePath . '/forgot-password') ?>">
                     <div class="mb-3">
-                        <label class="form-label">Usuário (e-mail)</label>
-                        <input type="email" name="email" class="form-control" required>
+                        <label class="form-label">E-mail</label>
+                        <input type="email" name="email" class="form-control" required
+                               placeholder="seu@email.com">
                     </div>
-                    <div class="mb-3">
-                        <label class="form-label">Senha</label>
-                        <input type="password" name="senha" class="form-control" required>
-                    </div>
-                    <button class="btn btn-primary w-100">Entrar</button>
+                    <button class="btn btn-primary w-100">Continuar</button>
                 </form>
                 <div class="text-center mt-3">
-                    <a href="<?= htmlspecialchars($basePath . '/forgot-password') ?>" class="text-decoration-none small">
-                        <i class="bi bi-key me-1"></i>Esqueci minha senha
+                    <a href="<?= htmlspecialchars($basePath . '/login') ?>" class="text-decoration-none small">
+                        <i class="bi bi-arrow-left me-1"></i>Voltar ao login
                     </a>
                 </div>
             </div>
         </div>
     </div>
 </div>
-

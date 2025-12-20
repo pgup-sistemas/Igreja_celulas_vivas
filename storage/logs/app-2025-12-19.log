@@ -16,3 +16,4 @@
 [2025-12-19 20:46:28] [WARNING] Validações falharam ao registrar reunião {"user_id":"1","erros":["O número de presentes não pode ser maior que o de cadastrados"]}
 [2025-12-19 20:46:48] [INFO] Reunião registrada com sucesso {"user_id":"1","celula_id":"2","data":"2025-12-19"}
 [2025-12-19 22:30:10] [INFO] Mês fechado {"mes":11,"ano":2025,"user_id":"1"}
+[2025-12-19 22:56:52] [INFO] Senha redefinida {"user_id":3,"redefinido_por":"1"}

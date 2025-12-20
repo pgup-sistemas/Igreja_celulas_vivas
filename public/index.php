@@ -30,6 +30,7 @@ use Src\Controllers\UsuarioController;
 use Src\Controllers\CongregacaoController;
 use Src\Controllers\CelulaController;
 use Src\Controllers\FechamentoController;
+use Src\Controllers\OnboardingController;
 use Src\Controllers\RelatorioController;
 
 $router = new Router();
@@ -37,6 +38,12 @@ $router = new Router();
 // Rotas públicas
 $router->get('/login', fn() => (new AuthController($config))->login());
 $router->post('/login', fn() => (new AuthController($config))->authenticate());
+$router->get('/forgot-password', fn() => (new AuthController($config))->forgotPassword());
+$router->post('/forgot-password', fn() => (new AuthController($config))->forgotPassword());
+$router->get('/forgot-password/verify', fn() => (new AuthController($config))->verifyForgotPassword());
+$router->post('/forgot-password/verify', fn() => (new AuthController($config))->verifyForgotPassword());
+$router->get('/forgot-password/reset', fn() => (new AuthController($config))->resetPassword());
+$router->post('/forgot-password/reset', fn() => (new AuthController($config))->resetPassword());
 
 // Rotas autenticadas
 $router->get('/', function() use ($config) {
@@ -53,6 +60,8 @@ $router->get('/', function() use ($config) {
     exit;
 });
 $router->get('/home', fn() => (new HomeController($config))->leaderHome());
+$router->get('/onboarding', fn() => (new OnboardingController($config))->index());
+$router->post('/onboarding/complete', fn() => (new OnboardingController($config))->complete());
 $router->get('/reunioes/novo', fn() => (new ReuniaoController($config))->form());
 $router->get('/reunioes/lideres', fn() => (new ReuniaoController($config))->getLideresByCelula());
 $router->post('/reunioes', fn() => (new ReuniaoController($config))->store());

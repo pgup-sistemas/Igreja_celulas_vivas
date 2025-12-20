@@ -39,6 +39,7 @@ function url($path = '') {
     </style>
 </head>
 <body class="bg-light">
+<?php if (strpos($viewFile ?? '', 'auth/') === false && strpos($viewFile ?? '', 'forgot-password/') === false): ?>
 <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
     <div class="container-fluid">
         <a class="navbar-brand d-flex align-items-center" href="<?= url('/') ?>">
@@ -108,6 +109,10 @@ function url($path = '') {
                             <span><?= htmlspecialchars($_SESSION['igreja_user']['nome']) ?></span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                            <li><a class="dropdown-item fw-semibold" href="<?= url('/onboarding') ?>">
+                                <i class="bi bi-question-circle me-2"></i>Como Usar
+                            </a></li>
+                            <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item fw-semibold" href="<?= url('/logout') ?>">
                                 <i class="bi bi-box-arrow-right me-2"></i>Sair
                             </a></li>
@@ -118,7 +123,8 @@ function url($path = '') {
         </div>
     </div>
 </nav>
-<main class="py-4">
+<?php endif; ?>
+<main class="<?= strpos($viewFile ?? '', 'auth/') !== false || strpos($viewFile ?? '', 'forgot-password/') !== false ? 'd-flex align-items-center min-vh-100 px-3' : 'py-4' ?>">
     <div class="container">
         <?php 
         // Helper para breadcrumb
@@ -138,8 +144,8 @@ function url($path = '') {
                 return $html;
             }
         }
-        // Renderizar breadcrumb se definido
-        if (isset($breadcrumb) && is_array($breadcrumb)) {
+        // Renderizar breadcrumb se definido (apenas para páginas não-auth)
+        if ((strpos($viewFile ?? '', 'auth/') === false && strpos($viewFile ?? '', 'forgot-password/') === false) && isset($breadcrumb) && is_array($breadcrumb)) {
             echo breadcrumb($breadcrumb);
         }
         ?>

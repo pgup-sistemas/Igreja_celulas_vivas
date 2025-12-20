@@ -34,6 +34,8 @@ class Auth
                 'id' => $user['id'],
                 'nome' => $user['nome'],
                 'perfil' => $user['perfil'],
+                'mostrar_onboarding' => $user['mostrar_onboarding'] ?? 1,
+                'onboarding_completo' => $user['onboarding_completo'] ?? 0,
             ];
             return true;
         }

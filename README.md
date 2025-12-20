@@ -1,4 +1,44 @@
-# Sistema de Gestão de Células - Igreja
+# Sistema de Gestão de Células
+
+## Funcionalidades
+
+- Gerenciamento de usuários e células
+- Registro de reuniões semanais
+- Relatórios em PDF
+- Dashboard administrativo
+- **Onboarding intuitivo** para novos usuários
+- **Recuperação de senha** segura sem necessidade de contato com admin
+
+## Recuperação de Senha
+
+O sistema permite que usuários recuperem suas senhas de forma independente:
+
+- **Acesso**: Link "Esqueci minha senha" na tela de login
+- **Validação**: Usa dados pessoais (nome + telefone para líderes)
+- **Segurança**: Não requer envio de e-mail, validação local
+- **Fluxo**: E-mail → Verificação de identidade → Nova senha
+
+Para líderes: valida nome + telefone cadastrado
+Para admins: valida nome (e-mail já confirmado)
+
+## Instalação
+
+1. Configure o banco de dados MySQL
+2. Execute o schema inicial: `database/schema.sql`
+3. Execute a migração do onboarding: `database/add_onboarding_field.sql`
+4. Execute a migração de preferências: `database/add_show_onboarding_field.sql`
+5. Configure o arquivo `config/config.php`
+
+## Onboarding
+
+O sistema inclui um tutorial interativo para novos usuários:
+
+- **Acesso**: Disponível via menu "Como Usar" ou automaticamente no primeiro login
+- **Funcionalidades**: 5 passos guiados cobrindo navegação, registro de reuniões e recursos
+- **Responsivo**: Funciona perfeitamente em desktop e mobile
+- **Interativo**: Progresso visual e navegação intuitiva
+
+Para novos usuários, o onboarding é exibido automaticamente no primeiro login. - Igreja
 
 Sistema web responsivo para registro, gestão e acompanhamento das células da igreja, permitindo que líderes lancem dados pelo celular e que o pastor/admin acompanhe indicadores consolidados.
 
